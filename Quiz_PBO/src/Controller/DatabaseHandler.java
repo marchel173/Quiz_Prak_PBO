@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author hanschristian
+ * @author Marchel
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
