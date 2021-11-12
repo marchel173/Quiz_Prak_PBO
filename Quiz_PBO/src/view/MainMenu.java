@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package view;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -55,13 +54,13 @@ public class MainMenu implements ActionListener {
         btnLogin.setBounds(110, 80, 220, 60);
         btnLogin.setFont(new Font("Arial", Font.BOLD, 20));
         
-        JButton btnRegistrasi = new JButton("Registrasi Pengguna Baru");
+        JButton btnRegistrasi = new JButton("Registrasi");
         btnRegistrasi.setBackground(new Color(173, 194, 169));
         btnRegistrasi.setForeground(new Color(63, 77, 63));
         btnRegistrasi.setBounds(110, 200, 220, 60);
         btnRegistrasi.setFont(new Font("Arial", Font.BOLD, 20));
         
-        JButton btnLihatData = new JButton("Lihat Data Pengguna");
+        JButton btnLihatData = new JButton("Lihat Data");
         btnLihatData.setBackground(new Color(173, 194, 169));
         btnLihatData.setForeground(new Color(63, 77, 63));
         btnLihatData.setBounds(110, 320, 220, 60);
@@ -144,7 +143,7 @@ public class MainMenu implements ActionListener {
                 frame.dispose();
                 break;
             case "RegistrasiPenggunaBaru":
-                new Registrasi();
+                
                 frame.dispose();
                 break;
             case "LihatDataPengguna":
