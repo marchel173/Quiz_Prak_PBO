@@ -6,6 +6,8 @@
 package view;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -22,7 +24,7 @@ public class MainMenu implements ActionListener {
     
     JFrame frame;
     JPanel panel;
-    JButton btnLogin, btnRegistrasi,btnLihatData,btnExit;
+    JButton btnLogin,btnRegistrasi,btnLihatData,btnExit;
     
     public MainMenu() {
 
@@ -33,6 +35,8 @@ public class MainMenu implements ActionListener {
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Image icon = Toolkit.getDefaultToolkit().getImage("src\\picture\\icon.jpg");  
+        frame.setIconImage(icon);
         
         // Make JPanel
         panel = new JPanel();
@@ -125,7 +129,38 @@ public class MainMenu implements ActionListener {
         panel.add(btnLihatData);
         panel.add(btnExit);
         frame.setContentPane(panel);
+        
+        // Set vicibility
+        frame.setVisible(true);
+        panel.setVisible(true);
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        switch(command) {
+            case "LoginPengguna":
+                new LoginMenu();
+                frame.dispose();
+                break;
+            case "Registrasi Pengguna Baru":
+                new RegistrasiMenu();
+                frame.dispose();
+                break;
+            case "Lihat Data Pengguna":
+                new CariDataMenu();
+                frame.dispose();
+                break;
+            case "Exit":
+                frame.dispose();
+                JOptionPane.showMessageDialog(null, "Terima Kasih Sudah Menggunakan Layanan Kami");
+                System.exit(0);
+                break;
+            default: 
+                break;
+        }
+    }
+
 
     public void actionMouseEntered(java.awt.event.MouseEvent evt) {
         btnRegistrasi.setBackground(new Color(211, 228, 205));
@@ -135,28 +170,4 @@ public class MainMenu implements ActionListener {
         btnRegistrasi.setBackground(new Color(173, 194, 169));
     }
 
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        switch(command) {
-            case "LoginPengguna":
-                new Login(null);
-                frame.dispose();
-                break;
-            case "RegistrasiPenggunaBaru":
-                
-                frame.dispose();
-                break;
-            case "LihatDataPengguna":
-                new LihatDataPengguna();
-                frame.dispose();
-                break;
-            case "Exit":
-                frame.dispose();
-                JOptionPane.showMessageDialog(null, "Thankyou for using our app : )");
-                System.exit(0);
-                break;
-            default: 
-                break;
-        }
-    }
-}
+}  
